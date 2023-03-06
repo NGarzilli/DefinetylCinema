@@ -1,11 +1,16 @@
 from django.shortcuts import render
-from django.http  import HttpResponse
 
-from AppCine.models import Pelicula
+def inicio(request):
+    return render(request, 'AppCine/inicio.html')
 
 def pelicula(request):
-    pelicula  =  Pelicula(nombre='The Thing', agno = '1982', genero= 'Terror/Ciencia ficcion')
-    pelicula.save()
-    respuesta=  f'Pelicula: {pelicula.nombre}, Año: {pelicula.agno}, Genero: {pelicula.genero}'
+    return render(request, 'AppCine/peliculas.html')
 
-    return  HttpResponse(respuesta)
+def director(request):
+    return render(request, 'AppCine/directores.html')
+
+def guionista(request): 
+    return render(request, 'AppCine/guionistas.html')
+
+def actor(request):
+    return render(request, 'AppCine/actores.html')
